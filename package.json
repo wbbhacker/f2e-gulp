@@ -1,0 +1,53 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wbbhacker/ES6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wbbhacker/ES6/issues"
+  },
+  "homepage": "https://github.com/wbbhacker/ES6#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-cache": "^1.0.2",
+    "gulp-cached": "^1.1.1",
+    "gulp-changed": "^3.2.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-debug": "^3.2.0",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-less": "^3.4.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-rev": "^8.1.1",
+    "gulp-rev-collector": "^1.2.3",
+    "gulp-sass": "^3.1.0",
+    "gulp-sequence": "^1.0.0",
+    "gulp-sourcemaps": "^2.6.3",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.4",
+    "imagemin-mozjpeg": "^7.0.0",
+    "make-dir": "^1.1.0",
+    "merge-stream": "^1.0.1",
+    "require-dir": "^0.3.2",
+    "through2": "^2.0.3",
+    "vinyl-fs": "^3.0.1"
+  },
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "glob": "^7.1.2",
+    "imagemin-pngquant": "^5.0.1"
+  }
+}
