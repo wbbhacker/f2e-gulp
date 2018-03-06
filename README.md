@@ -1,13 +1,28 @@
 # f2e-gulp
 前端打包工具
 
+## 功能
+
+1. 项目开发时:
+ * 自动搭建本地服务器
+ * 实时刷新浏览器
+ * 自动编译sass/less 
+
+2. 项目打包时:
+
+ * 压缩图片、js、css、html，
+ * 并给js、css、图片文件引用添加随机数
+ * 自动替换文件相对路径
+
+
+
 ### 安装
   1. git clone 本项目到某一盘符下（如：F盘）;
   2. 进入项目 双击 *z-start.bat* 文件,在弹出来的命令行对话框中输入：`npm install` 命令，等待安装完成即可；
 ### 配置项目路径
   1. 在*config.js*文件中，修改 *config.basePath = 相对项目路径*； 如`config.basePath = '/web/sale_go/20180226_demo/';`
 ### 使用方法
-  1. 双击 *z-start.bat* 文件，输入`gulp int` 命令，会在 *20180226_demo* 文件下创建一个 *static* 文件夹（*static*文件下会有*css*、*img*
+  1. 双击 *z-start.bat* 文件，输入`gulp init` 命令，会在 *20180226_demo* 文件下创建一个 *static* 文件夹（*static*文件下会有*css*、*img*
   、*js*、*music*文件夹）; ps：你的项目写在 *static* 文件夹，打包时会打包到外面;
   > 自己创建项目所需要的文件，*scss/less* 文件 放在 *css* 夹中,*javascript* 文件放在 *js* 文件夹中，图片放在 *img* 文件夹中，音乐放在 *music* 文件夹中
   2. 开发项目时，双击 *z-start.bat* 文件，输入`gulp` 命令即可；
