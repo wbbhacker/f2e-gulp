@@ -5,7 +5,6 @@ config.basePath = '/web/sale_go/20180226_demo/';
 
 config.port = 3000;
 
-
 config.htmlPath = config.basePath+'static/**/*.html';
 config.htmlDest = config.basePath;
 
