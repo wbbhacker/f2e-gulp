@@ -9,12 +9,12 @@ var reWritePath = (options) => {
 
 		str = chunk.contents.toString();
 
-		regex = /(\"|\'|'\(){1}(css|js|img|music){1}\/{1}/g;
+		regex = /(\"\.\/|\'\.\/|\"|\'){1}(css|js|img|music){1}\/{1}/g;
 
 		strs = str.replace(regex,function(word){
-
+			
 			let regex = /[a-zA-Z]+/g,
-				regexA = /\"|\'|\(/g,
+				regexA = /\"\.\/|\'\.\/|\"|\'/g,
 				punctuation;
 
 			punctuation = word.match(regexA)[0];
