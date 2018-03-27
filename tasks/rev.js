@@ -2,57 +2,54 @@
 var rev = ($,config)=>{
 
 	const gulp = $.gulp;
-
+	
 	return ()=>{
-
-		console.log($.chalk.greenBright('***************	html,js,css压缩、丑化	***************************'));
-
-		let timestamp = new  Date().getTime();
 		
-		
-		console.log($.chalk.red('本次添加版本号为：'+timestamp));
+		console.log($.chalk.red('js,css：替换图片、添加版本号、压缩中......'));
 
-
-		var a = gulp.src(config.htmlPath)
-
-			.pipe($.changed(config.htmlDest))
-
-			.pipe($.rePath({
-				destPath:'build'
-			}))
-			.pipe($.myRev({timestamp:timestamp}))
-			.pipe($.htmlmin({collapseWhitespace: true}))
-			
-			.pipe($.debug({title: 'html文件处理:'}))
-			.pipe(gulp.dest(config.htmlDest))
-			
-
-		var b = gulp.src(config.cssPath)
+		var b = gulp.src([config.revImg+'*.json',config.cssPath])
 			.pipe($.changed(config.cssDest))
-			.pipe($.myRev({timestamp:timestamp}))
+			
+			.pipe($.revCollector({
+	            replaceReved: true,
+	            dirReplacements: {                
+	                'img': 'img',
+	                '../img': '../img'
+	            }
+	        }))
+	        .pipe($.rev())
 			.pipe($.cleanCss())
 			.pipe($.debug({title: 'css文件处理:'}))
 			.pipe(gulp.dest(config.cssDest))
+			.pipe($.rev.manifest())
+        	.pipe(gulp.dest(config.revCss));
+        	
+        console.log(config.revImg)
 
-
-		var c = gulp.src(config.jsPath)
+		var c = gulp.src([config.revImg+'*.json',config.jsPath])
 			.pipe($.changed(config.jsDest))
-			.pipe($.rePath({
-				destPath:'build'
-			}))
-			.pipe($.myRev({timestamp:timestamp}))
+			.pipe($.revCollector({
+	            replaceReved: true,
+	            dirReplacements: {
+	                'img': 'build/img',
+	                '../img': '../build/img'
+	            }
+	        }))
+	        .pipe($.rev())
 			.pipe($.uglify())
 			.pipe($.debug({title: 'js文件处理:'}))
 			.pipe(gulp.dest(config.jsDest))
+			.pipe($.rev.manifest())
+			.pipe(gulp.dest(config.revjs))
 
+			
+		// var d = gulp.src(config.mp3Path)
+		// 	.pipe($.changed(config.mp3Dest))
+		// 	.pipe($.debug({title: 'mp3文件处理:'}))
+		// 	.pipe(gulp.dest(config.mp3Dest))
 
-		var d = gulp.src(config.mp3Path)
-			.pipe($.changed(config.mp3Dest))
-			.pipe($.debug({title: 'mp3文件处理:'}))
-			.pipe(gulp.dest(config.mp3Dest))
-
-
-		$.merge(a,b,c,d);
+		
+		return $.merge(b,c);
 
 	}
 }

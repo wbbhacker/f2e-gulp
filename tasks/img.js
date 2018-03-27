@@ -26,19 +26,14 @@ var img = ($,config,condition) => {
 	                $.mozjpeg({quality:'60'})
 	                ],{verbose:true});
 
-	    var arrPath = [
-	    		config.htmlDest+'*.html',
-	    		config.cssDest+'**/*.css',
-	    		config.jsDest+'**/*.js'
-	    		];
-
-	    		
 
 	    var stream = gulp.src(config.imgPath)
 
 	        .pipe($.if(condition, noCache,cache))
-	 		
-	        .pipe(gulp.dest(config.imgDest))
+	 		.pipe($.rev())
+	       	.pipe(gulp.dest(config.imgDest))
+	       	.pipe($.rev.manifest())
+	       	.pipe(gulp.dest(config.revImg));
 	    	
 	    return stream;
 

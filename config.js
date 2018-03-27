@@ -1,6 +1,10 @@
 const config = {};
 
-config.basePath = '/web/sale_go/20180226_demo/';
+// config.basePath = '/web/sale_go/20180226_demo/';
+
+// config.basePath = '/aaa/';
+
+config.basePath = '/worktest/packTest/';
 
 
 config.port = 3000;
@@ -10,7 +14,6 @@ config.htmlDest = config.basePath;
 
 config.lessPath = config.basePath+'static/css/**/*.less';
 config.lessDest = config.basePath+'static/css/';
-
 
 config.scssPath = config.basePath+'static/css/**/*.scss';
 config.scssDest = config.basePath+'static/css/';
@@ -29,5 +32,11 @@ config.mp3Dest = config.basePath + 'build/music/';
 
 
 config.serverPath = config.basePath+'static/';
+
+config.revImg = config.basePath + 'rev/img/';
+
+config.revjs = config.basePath + 'rev/js/';
+
+config.revCss = config.basePath + 'rev/css/';
 
 module.exports = config

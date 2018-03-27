@@ -12,6 +12,9 @@ var clean = ($,config)=>{
 		var b = gulp.src(config.basePath+'*.html')
 					.pipe($.clean({force: true}));
 
+		var b = gulp.src(config.basePath+'rev')
+					.pipe($.clean({force: true}));
+
 
 	}
 }
