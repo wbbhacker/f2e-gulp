@@ -20,7 +20,6 @@ $.mozjpeg = require('imagemin-mozjpeg');
 $.merge = require('merge-stream');
 $.makeDir = require('make-dir');
 $.chalk = require('chalk');
-$.runSequence = require('run-sequence');
 
 
 //  --监视任务------------------------------------------------
